@@ -47,13 +47,11 @@ order by total_death_count;
 
 -- global numbers
 select
-	sum(new_cases) as sum_of_new_cases,
-	sum(new_deaths) as sum_of_new_deaths,
-    (cast(sum(new_deaths) as decimal) / cast(sum(new_cases) as decimal)) * 100 as percentage_of_deaths
-from
-	covid_deaths
-where
-	continent is not null;
+sum(new_cases) as sum_of_new_cases,
+sum(new_deaths) as sum_of_new_deaths,
+(cast(sum(new_deaths) as decimal) / cast(sum(new_cases) as decimal)) * 100 as percentage_of_deaths
+from covid_deaths
+where continent is not null;
 
 select *
 from covid_deaths as dea
